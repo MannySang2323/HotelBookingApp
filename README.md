@@ -1,6 +1,7 @@
-# HotelBookingApp - Personal Project
+# Hotel Room Booking Application - Personal Project
 
 ## Full Stack Application using:
+
 1. ASP.Net Core using Razor Pages with DI
 2. C# Class Library
 3. Dapper using SQL Stored Procedures for data access
@@ -9,5 +10,6 @@
 
 ## TODOs
 1. Modify Confirmation web page for aesthetics
-2. Modify confirmation logic to generate confirmation logic based off of room booking information
-3. Create data access class for connecting to SQLite
+2. Modify confirmation logic to generate confirmation logic based off of room booking information (currently hardcoded)
+3. Create data access class for connecting to SQLite Database
+4. Create data access class for connecting to cloud database - Azure
