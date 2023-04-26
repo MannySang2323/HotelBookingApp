@@ -1,0 +1,16 @@
+﻿@page
+@model HotelApp.Web.Pages.ConfirmationModel
+@{
+}
+<h1>Confirmation Information</h1>
+
+<p>Thank you, @Model.BookingFull.FirstName @Model.BookingFull.LastName</p>
+<br/>
+<p>
+    for booking the @Model.BookingFull.Title from @Model.BookingFull.StartDate to 
+    @Model.BookingFull.EndDate . Room is @Model.BookingFull.Description with a Room Number 
+    of @Model.BookingFull.RoomNumber .  
+
+    Your Confirmation Number is: 76t7g7g.
+
+</p>

@@ -1,0 +1,67 @@
+﻿@page
+@model HotelApp.Web.Pages.RoomSearchModel
+@{
+}
+
+<h1>Room Search</h1>
+
+<form asp-action="post">
+    <div class="form-group">
+        <label asp-for="@Model.StartDate"></label>
+        <input type="date" asp-for="@Model.StartDate" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="@Model.EndDate"></label>
+        <input type="date" asp-for="@Model.EndDate" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Search For Rooms</button>
+</form>
+
+<br />
+<br />
+<br />
+
+@if (Model.IsSearchEnabled)
+{
+    if (Model.AvailableRoomTypes?.Count > 0)
+    {
+        <br />
+
+        <h3 style="color:blue">The following room(s) are available...</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Room Types</td>
+                    <td>Price</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var room in Model.AvailableRoomTypes)
+                {
+                    <tr>
+                        <td>
+                            <strong>@room.Title</strong> <br />
+                            @room.Description
+                        </td>
+                        <td>@string.Format("{0:C}", room.Price)</td>
+                        <td><a asp-page="/BookRoom" asp-route-RoomTypeId="@room.Id" 
+                                                    asp-route-StartDate ="@Model.StartDate.ToShortDateString()" 
+                                                    asp-route-EndDate="@Model.EndDate.ToShortDateString()">Book Now</a> </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    }
+    else
+    {
+        <h3 style="color:red">No rooms are available.  Please select different dates...</h3>
+    }
+}
+
+
